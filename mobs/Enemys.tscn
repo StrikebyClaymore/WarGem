@@ -1,0 +1,247 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://mobs/Enemys.gd" type="Script" id=1]
+[ext_resource path="res://mobs/triangle.gd" type="Script" id=2]
+[ext_resource path="res://images/triangleMob2.png" type="Texture" id=3]
+[ext_resource path="res://mobs/square.gd" type="Script" id=4]
+[ext_resource path="res://images/squareMob2.png" type="Texture" id=5]
+[ext_resource path="res://mobs/hexagon.gd" type="Script" id=6]
+[ext_resource path="res://images/hexagonMob2.png" type="Texture" id=7]
+[ext_resource path="res://mobs/boss1.gd" type="Script" id=8]
+[ext_resource path="res://images/boss1_sleep.png" type="Texture" id=9]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10, 10 )
+
+[node name="Enemys" type="RigidBody2D"]
+
+input_pickable = false
+collision_layer = 3
+collision_mask = 3
+mode = 0
+mass = 50.0
+friction = 0.0
+bounce = 0.0
+gravity_scale = 1.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 1
+contact_monitor = true
+sleeping = false
+can_sleep = true
+linear_velocity = Vector2( 0, 0 )
+linear_damp = -1.0
+angular_velocity = 0.0
+angular_damp = -1.0
+script = ExtResource( 1 )
+_sections_unfolded = [ "Collision", "Transform" ]
+
+[node name="triangle" type="RigidBody2D" parent="." index="0" groups=[
+"enemy",
+]]
+
+editor/display_folded = true
+input_pickable = false
+collision_layer = 10
+collision_mask = 10
+mode = 0
+mass = 50.0
+friction = 1.0
+bounce = 0.0
+gravity_scale = 1.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 1
+contact_monitor = true
+sleeping = false
+can_sleep = true
+linear_velocity = Vector2( 0, 0 )
+linear_damp = -1.0
+angular_velocity = 0.0
+angular_damp = -1.0
+script = ExtResource( 2 )
+_sections_unfolded = [ "Collision" ]
+
+[node name="Sprite" type="Sprite" parent="triangle" index="0"]
+
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="triangle" index="1"]
+
+scale = Vector2( 3, 3 )
+shape = SubResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="hit_color" type="ColorRect" parent="triangle" index="2"]
+
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -32.0
+margin_top = -32.0
+margin_right = 32.0
+margin_bottom = 32.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+color = Color( 0.726563, 0.0368958, 0.0368958, 0.33702 )
+_sections_unfolded = [ "Rect" ]
+
+[node name="square" type="RigidBody2D" parent="." index="1" groups=[
+"enemy",
+]]
+
+editor/display_folded = true
+input_pickable = false
+collision_layer = 10
+collision_mask = 10
+mode = 0
+mass = 50.0
+friction = 1.0
+bounce = 0.0
+gravity_scale = 1.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 1
+contact_monitor = true
+sleeping = false
+can_sleep = true
+linear_velocity = Vector2( 0, 0 )
+linear_damp = -1.0
+angular_velocity = 0.0
+angular_damp = -1.0
+script = ExtResource( 4 )
+_sections_unfolded = [ "Collision" ]
+
+[node name="Sprite" type="Sprite" parent="square" index="0"]
+
+texture = ExtResource( 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="square" index="1"]
+
+scale = Vector2( 3, 3 )
+shape = SubResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="hit_color" type="ColorRect" parent="square" index="2"]
+
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -32.0
+margin_top = -32.0
+margin_right = 32.0
+margin_bottom = 32.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+color = Color( 0.726563, 0.0368958, 0.0368958, 0.33702 )
+_sections_unfolded = [ "Rect" ]
+
+[node name="hexagon" type="RigidBody2D" parent="." index="2" groups=[
+"hexagon",
+"enemy",
+]]
+
+editor/display_folded = true
+input_pickable = false
+collision_layer = 10
+collision_mask = 10
+mode = 0
+mass = 50.0
+friction = 1.0
+bounce = 0.0
+gravity_scale = 1.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 1
+contact_monitor = true
+sleeping = false
+can_sleep = true
+linear_velocity = Vector2( 0, 0 )
+linear_damp = -1.0
+angular_velocity = 0.0
+angular_damp = -1.0
+script = ExtResource( 6 )
+_sections_unfolded = [ "Collision" ]
+
+[node name="Sprite" type="Sprite" parent="hexagon" index="0"]
+
+texture = ExtResource( 7 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hexagon" index="1"]
+
+scale = Vector2( 3, 3 )
+shape = SubResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="hit_color" type="ColorRect" parent="hexagon" index="2"]
+
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -32.0
+margin_top = -32.0
+margin_right = 32.0
+margin_bottom = 32.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+color = Color( 0.726563, 0.0368958, 0.0368958, 0.33702 )
+_sections_unfolded = [ "Rect" ]
+
+[node name="boss1" type="RigidBody2D" parent="." index="3" groups=[
+"enemy",
+"boss1",
+"boss",
+]]
+
+editor/display_folded = true
+input_pickable = false
+collision_layer = 10
+collision_mask = 10
+mode = 3
+mass = 50.0
+friction = 1.0
+bounce = 0.0
+gravity_scale = 1.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 1
+contact_monitor = true
+sleeping = false
+can_sleep = true
+linear_velocity = Vector2( 0, 0 )
+linear_damp = -1.0
+angular_velocity = 0.0
+angular_damp = -1.0
+script = ExtResource( 8 )
+_sections_unfolded = [ "Collision" ]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="boss1" index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( -8, 113.473, 80, 15.4727, -7.5, -79.5273, -82, 14.9727 )
+
+[node name="Sprite" type="Sprite" parent="boss1" index="1"]
+
+texture = ExtResource( 9 )
+
+

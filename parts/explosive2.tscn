@@ -1,0 +1,84 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://gradients/hexagonGrad.tres" type="Gradient" id=1]
+[ext_resource path="res://parts/explosive2.gd" type="Script" id=2]
+
+[sub_resource type="GradientTexture" id=1]
+
+flags = 4
+gradient = ExtResource( 1 )
+width = 2048
+
+[sub_resource type="ParticlesMaterial" id=2]
+
+render_priority = 0
+trail_divisor = 1
+emission_shape = 2
+emission_box_extents = Vector3( 16, 16, 1 )
+flag_align_y = true
+flag_rotate_y = true
+flag_disable_z = true
+spread = 45.0
+flatness = 1.0
+gravity = Vector3( 0, 9.8, 0 )
+initial_velocity = 1.0
+initial_velocity_random = 1.0
+angular_velocity = 0.0
+angular_velocity_random = 0.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+linear_accel = 16.0
+linear_accel_random = 1.0
+radial_accel = 100.0
+radial_accel_random = 1.0
+tangential_accel = 1.0
+tangential_accel_random = 1.0
+damping = 1.0
+damping_random = 1.0
+angle = 180.0
+angle_random = 1.0
+scale = 12.0
+scale_random = 1.0
+color_ramp = SubResource( 1 )
+hue_variation = 1.0
+hue_variation_random = 0.0
+anim_speed = 1.0
+anim_speed_random = 1.0
+anim_offset = 0.0
+anim_offset_random = 0.0
+anim_loop = false
+_sections_unfolded = [ "Animation", "Color", "Hue Variation" ]
+
+[node name="explosive2" type="Particles2D"]
+
+emitting = false
+amount = 100
+lifetime = 1.5
+one_shot = true
+preprocess = 1.0
+speed_scale = 1.5
+explosiveness = 0.0
+randomness = 1.0
+fixed_fps = 0
+fract_delta = true
+visibility_rect = Rect2( -100, -100, 200, 200 )
+local_coords = true
+draw_order = 0
+process_material = SubResource( 2 )
+texture = null
+normal_map = null
+h_frames = 1
+v_frames = 1
+script = ExtResource( 2 )
+_sections_unfolded = [ "Drawing", "Process Material", "Textures", "Time", "Transform" ]
+
+[node name="Timer" type="Timer" parent="." index="0"]
+
+process_mode = 1
+wait_time = 1.5
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+
+

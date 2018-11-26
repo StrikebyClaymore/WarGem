@@ -1,0 +1,159 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://parts/block.gd" type="Script" id=1]
+[ext_resource path="res://parts/triangle.gd" type="Script" id=2]
+[ext_resource path="res://images/amethyst_triangle_block.png" type="Texture" id=3]
+[ext_resource path="res://parts/square.gd" type="Script" id=4]
+[ext_resource path="res://images/topaz_square_block.png" type="Texture" id=5]
+[ext_resource path="res://parts/hexagon.gd" type="Script" id=6]
+[ext_resource path="res://images/sapphire_circle_block.png" type="Texture" id=7]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10, 10 )
+
+[sub_resource type="RectangleShape2D" id=2]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10, 10 )
+
+[node name="block" type="KinematicBody2D" groups=[
+"other",
+]]
+
+editor/display_folded = true
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+collision/safe_margin = 0.08
+script = ExtResource( 1 )
+_sections_unfolded = [ "Collision", "Z Index" ]
+
+[node name="triangle" type="KinematicBody2D" parent="." index="0"]
+
+editor/display_folded = true
+input_pickable = false
+collision_layer = 16
+collision_mask = 16
+collision/safe_margin = 0.08
+script = ExtResource( 2 )
+_sections_unfolded = [ "Collision" ]
+
+[node name="Sprite" type="Sprite" parent="triangle" index="0"]
+
+scale = Vector2( 2, 2 )
+texture = ExtResource( 3 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="triangle" index="1"]
+
+scale = Vector2( 3.2, 3.2 )
+shape = SubResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="zone" type="Area2D" parent="triangle" index="2"]
+
+editor/display_folded = true
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+collision_layer = 16
+collision_mask = 16
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Collision", "Transform" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="triangle/zone" index="0"]
+
+scale = Vector2( 3.2, 3.2 )
+shape = SubResource( 2 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="square" type="KinematicBody2D" parent="." index="1"]
+
+editor/display_folded = true
+input_pickable = false
+collision_layer = 16
+collision_mask = 16
+collision/safe_margin = 0.08
+script = ExtResource( 4 )
+_sections_unfolded = [ "Collision" ]
+
+[node name="Sprite" type="Sprite" parent="square" index="0"]
+
+scale = Vector2( 2, 2 )
+texture = ExtResource( 5 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="square" index="1"]
+
+scale = Vector2( 3.1, 3.1 )
+shape = SubResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="zone" type="Area2D" parent="square" index="2"]
+
+editor/display_folded = true
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+collision_layer = 16
+collision_mask = 16
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Collision" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="square/zone" index="0"]
+
+scale = Vector2( 3.2, 3.2 )
+shape = SubResource( 2 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="hexagon" type="KinematicBody2D" parent="." index="2"]
+
+editor/display_folded = true
+input_pickable = false
+collision_layer = 16
+collision_mask = 16
+collision/safe_margin = 0.08
+script = ExtResource( 6 )
+_sections_unfolded = [ "Collision" ]
+
+[node name="Sprite" type="Sprite" parent="hexagon" index="0"]
+
+scale = Vector2( 2, 2 )
+texture = ExtResource( 7 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hexagon" index="1"]
+
+scale = Vector2( 3.1, 3.1 )
+shape = SubResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="zone" type="Area2D" parent="hexagon" index="2"]
+
+editor/display_folded = true
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+collision_layer = 16
+collision_mask = 16
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Collision", "Transform" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hexagon/zone" index="0"]
+
+scale = Vector2( 3.2, 3.2 )
+shape = SubResource( 2 )
+_sections_unfolded = [ "Transform" ]
+
+

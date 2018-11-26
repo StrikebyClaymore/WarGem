@@ -1,0 +1,146 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://tileset/places.gd" type="Script" id=1]
+[ext_resource path="res://tileset/ground.gd" type="Script" id=2]
+[ext_resource path="res://images/place1.png" type="Texture" id=3]
+[ext_resource path="res://tileset/platform.gd" type="Script" id=4]
+[ext_resource path="res://images/place2.png" type="Texture" id=5]
+[ext_resource path="res://images/placeGate0.png" type="Texture" id=6]
+[ext_resource path="res://images/placeGate1.png" type="Texture" id=7]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 250.492, 13.5898 )
+
+[sub_resource type="RectangleShape2D" id=2]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10.143, 16 )
+
+[sub_resource type="RectangleShape2D" id=3]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10.0397, 32.8292 )
+
+[node name="places" type="StaticBody2D"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+script = ExtResource( 1 )
+_sections_unfolded = [ "Collision" ]
+
+[node name="ground" type="StaticBody2D" parent="." index="0" groups=[
+"floor",
+"place",
+]]
+
+editor/display_folded = true
+input_pickable = false
+collision_layer = 27
+collision_mask = 27
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+script = ExtResource( 2 )
+_sections_unfolded = [ "Collision", "Transform" ]
+
+[node name="sprite" type="Sprite" parent="ground" index="0"]
+
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ground" index="1"]
+
+position = Vector2( -2.2022, -0.00446227 )
+scale = Vector2( 1.907, 2.35 )
+shape = SubResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="platform" type="StaticBody2D" parent="." index="1" groups=[
+"place",
+]]
+
+editor/display_folded = true
+input_pickable = false
+collision_layer = 5
+collision_mask = 5
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+script = ExtResource( 4 )
+_sections_unfolded = [ "Collision" ]
+
+[node name="sprite" type="Sprite" parent="platform" index="0"]
+
+texture = ExtResource( 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="platform" index="1"]
+
+position = Vector2( 0.074521, 0 )
+scale = Vector2( 6.30244, 1 )
+shape = SubResource( 2 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="gate" type="StaticBody2D" parent="." index="2" groups=[
+"floor",
+"place",
+]]
+
+editor/display_folded = true
+input_pickable = false
+collision_layer = 11
+collision_mask = 11
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+script = ExtResource( 2 )
+_sections_unfolded = [ "Collision", "Transform" ]
+
+[node name="sprite1" type="Sprite" parent="gate" index="0"]
+
+texture = ExtResource( 6 )
+
+[node name="sprite2" type="Sprite" parent="gate" index="1"]
+
+visible = false
+texture = ExtResource( 7 )
+
+[node name="Collision1" type="CollisionShape2D" parent="gate" index="2"]
+
+position = Vector2( -272.739, -0.182535 )
+scale = Vector2( 0.828981, 2.35145 )
+shape = SubResource( 1 )
+
+[node name="Collision2" type="CollisionShape2D" parent="gate" index="3"]
+
+position = Vector2( 272.545, -0.18255 )
+scale = Vector2( 0.828138, 2.35145 )
+shape = SubResource( 1 )
+
+[node name="area_gate" type="Area2D" parent="gate" index="4"]
+
+position = Vector2( 1.57611, 0 )
+scale = Vector2( 1.96407, 1 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+
+[node name="Collision3" type="CollisionShape2D" parent="gate/area_gate" index="0"]
+
+position = Vector2( -0.869584, -0.485165 )
+scale = Vector2( 3.30576, 0.984795 )
+shape = SubResource( 3 )
+
+
